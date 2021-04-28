@@ -1,0 +1,44 @@
+﻿@page "/fetchdata"
+
+@using DBviewer.Data
+@inject PotStateService PotService
+
+<h1>Database entries</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Moisture (%)</th>
+                <th>Luminance (Lum)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var state in states)
+            {
+                <tr>
+                    <td>@state.Date.ToShortDateString()</td>
+                    <td>@state.Moisture</td>
+                    <td>@state.Luminance</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private PotState[] states;
+
+    protected override async Task OnInitializedAsync()
+    {
+        states = await PotStateService.GetForecastAsync(DateTime.Now);
+    }
+}
