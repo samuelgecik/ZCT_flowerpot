@@ -30,18 +30,17 @@ namespace Flowerpot
                 con.Close();
                 Label1.Text = "Moisture: " + moisture + '%';
                 Label2.Text = "Luminosity: " + luminance + "lux";
-            }
-           
-            
+            }            
             Button2.Click += buttonEvent;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             water = !water;
-            displaymessage.Visible = true;
+            ((Button)sender).Text = water ? "Watering" : "Water";
             Toggle();
         }
+
 
         protected void Button2_Click(object sender, EventArgs e)
         {

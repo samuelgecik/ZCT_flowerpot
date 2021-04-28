@@ -153,6 +153,7 @@
     <None Include="Properties\PublishProfiles\Flowerpot - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\iotgecik - Web Deploy.pubxml" />
     <Content Include="input.csv" />
+    <None Include="Properties\PublishProfiles\zctflowerpot - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

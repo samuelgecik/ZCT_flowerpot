@@ -5,15 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script type="text/javascript">  
-    window.onload = function ()  
-    {  
-        var seconds = 5;  
-        setTimeout(function () {  
-            document.getElementById("<%=displaymessage.ClientID %>").style.display = "none";  
-    }, seconds * 1000);  
-};  
-    </script> 
 </head>
 <body style="margin: 0; height: 100%">
     <form id="form1" runat="server">
@@ -35,8 +26,6 @@
             <div class="center">
                 <asp:Button ID="Button1" runat="server" BackColor="Black" Font-Bold="True" ForeColor="White" OnClick="Button1_Click" Text="Water" CssClass="roundCorner" BorderStyle="None" />
                 <br />
-                <asp:Label ID="displaymessage" ForeColor="White" Font-Bold="true" Text="The plant will be watered." runat="server" Visible="false" />
-                <br />
                 <br />
                 <asp:Button ID="Button2" runat="server" BackColor="Black" Font-Bold="True" ForeColor="White" OnClick="Button2_Click" Text="Light Auto" CssClass="roundCorner" BorderStyle="None"/>
             </div>
@@ -52,11 +41,9 @@
                 width:200px;  
                 height:45px;  
             }
-
             .height {
                 height: 100vh;
             }
-
             .center {
                 margin: 0;
                 position: absolute;
