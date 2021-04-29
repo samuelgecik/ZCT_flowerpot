@@ -13,8 +13,8 @@ namespace Flowerpot
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-             string moisture = Request.QueryString["moist"];
-             string luminance = Request.QueryString["lum"];
+            string moisture = Request.QueryString["moist"];
+            string luminance = Request.QueryString["lum"];
             int max_id;
             string connectString = "Host=ec2-54-216-185-51.eu-west-1.compute.amazonaws.com;Port=5432;User ID=ncfpnnvvzuycpl;Password=18ba18d3620bb3a090933851a3ee2110a6df7eb257f31d4dd65aee8f93ae149e;Database=d8chtgod94i64r;sslmode=Require;TrustServerCertificate=True;";
             using (NpgsqlConnection con = new NpgsqlConnection(connectString))

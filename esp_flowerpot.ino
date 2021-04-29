@@ -6,8 +6,8 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_TSL2561_U.h>
 
-const char* ssid = "Whatever";
-const char* pass = "50GK14g434p4";
+const char* ssid = "Hello";
+const char* pass = "12345678";
 
 #define SOILMOISTURE_3V3_PIN_SIG  A0
 #define WATERPUMP_PIN D5
@@ -66,15 +66,17 @@ void loop()
 
     if (WiFi.status() == WL_CONNECTED){
       HTTPClient http;
-      String receiver = "http://iotgecik.azurewebsites.net/receiver.aspx?";
+      String receiver = "http://zctflowerpot.azurewebsites.net/receiver.aspx?";
       receiver += "moist=" + String(soilMoisture);
       receiver += "&lum=" + String(luminosity);
+      Serial.println(receiver);
 
       http.begin(receiver);
-      http.GET();
+      int code = http.GET();
+      Serial.println(code);
       http.end();
 
-      String request = "http://iotgecik.azurewebsites.net/output.txt";
+      String request = "http://zctflowerpot.azurewebsites.net/output.txt";
       http.begin(request);
       if (http.GET() > 0){
         String payload = http.getString();
